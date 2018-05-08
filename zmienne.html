@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+	<script>
+		'use strict'; 
+		
+		var a = "var -zakres globalny";
+		let b = "let -zakres globalny";
+		const c = "const -zakres globalny";
+		
+		function fu(){
+			a = "var -zakres lokalny";
+			b = "let -zakres lokalny";
+			c = "const -zakres lokalny";
+			console.log(a);
+			console.log(b);
+			console.log(c);
+		}
+		console.log(a);
+		console.log(b);
+		console.log(c);
+		fu();
+	</script>
+</body>
+
+</html>

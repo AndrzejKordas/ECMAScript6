@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+<div class="row" id="place" >
+
+</div>
+</div>
+<div id="nav"></div>
+<script>
+/////////////////////////////////////////////////
+
+var tab =[];
+
+function co(){
+	
+	for(var i =0; i < tab.length; i++ ){	
+	var ele =document.getElementById(tab[i]);
+	var napis =document.createTextNode("usuń " + tab[i]);
+	var but = document.createElement("button");	
+	but.appendChild(napis);
+	ele.appendChild(but);
+	but.addEventListener("click",
+	function(){
+		alert(tab[i]);
+		//localStorage.removeItem(tab[i]);
+		 
+		
+		},false
+	);
+	
+	}
+	}
+
+
+(function(){
+var frag = document.createDocumentFragment();
+	
+	for(var i =0; i < localStorage.length; i++ ){
+		
+		var klucz = localStorage.key(i); 
+		var war = localStorage.getItem(klucz);
+		tab[i] = klucz;
+		
+		var komorka = document.createElement("div");
+		komorka.setAttribute("class", "col-md-4 lead border border-primary");
+		var contentKey =document.createTextNode(klucz);
+		komorka.appendChild(contentKey);
+		
+		var komorka2 = document.createElement("div");	
+		komorka2.setAttribute("class", "col-md-4 border border-success");
+		var contentWar =document.createTextNode(war);
+		komorka2.appendChild(contentWar);
+	
+		var komorka3 = document.createElement("div");	
+		komorka3.setAttribute("class", "col-md-4 border border border-danger");
+		komorka3.setAttribute("id", klucz);
+
+		frag.appendChild(komorka);
+		frag.appendChild(komorka2);
+		frag.appendChild(komorka3);
+	
+		
+		}
+	
+	place.appendChild(frag);
+	co();
+	
+}());
+
+//////////////////////////////////////////////
+
+</script>
+</body>
+</html>

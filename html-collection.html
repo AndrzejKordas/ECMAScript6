@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<p>1</p><p>2</p><p>3</p>
+<script>
+/*
+Celem tego zadania jest pobranie wszystkich istniejących paragrafów
+*/
+
+
+
+
+
+const ileP = document.getElementsByTagName("p").length;
+
+for(var i=0; i < ileP; i++){
+	var ele = document.getElementsByTagName("p").item(i);
+	ele.style.background="red";
+	}
+
+
+
+
+function fu() {
+  var x = document.getElementsByTagName("p").item(0);
+  console.log(typeof ileP.attributes);
+}
+
+
+fu(); 
+
+</script>
+</body>
+</html>

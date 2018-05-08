@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form>
+<input name="klucz" type="text" placeholder="klucz" id="klucz">
+<input name="wartosc" type="text" placeholder="wartosc" id="wartosc">
+<input type="button" id="but" value="Dodaj do magazynu lokalnego">
+</form>
+
+
+<script>
+//////////////////////////////////////////////
+//localStorage.setItem( "nazwisko", "Kordas" )
+/*
+var tab=[];
+for(var i =0; i < localStorage.length; i++ ){
+	var klucz = localStorage.key(i); 
+	console.log(toString(klucz));
+	tab[i] = localStorage.getItem(klucz);
+	alert( tab[i]);
+	}
+*/	
+
+function rob(){
+	var klucz = document.getElementById("klucz").value;
+	var wartosc = document.getElementById("wartosc").value;
+	localStorage.setItem( klucz, wartosc );
+	location.href = "storage35.html"; 
+	}
+
+	
+const ele = document.getElementById("but");
+ele.addEventListener("click",rob,false);
+	
+	
+
+//////////////////////////////////////////////
+
+</script>
+</body>
+</html>

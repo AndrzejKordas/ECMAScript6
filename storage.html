@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<script>
+/////////////////////////////////////////////////
+
+let tab=[];
+for(let i =0; i < localStorage.length; i++ ){
+	let klucz = localStorage.key(i); 
+	let war = localStorage.getItem(klucz);
+	alert( `-- klucz: ${klucz} ---  wartość: ${war} --`);
+	}
+
+//////////////////////////////////////////////
+
+</script>
+</body>
+</html>

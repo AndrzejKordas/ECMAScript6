@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+
+<script>
+const a = "globalna";
+const  F = function (){
+	var b = "lokalna";
+	(function(){
+		var c = "wew lokalna";
+		alert(`zmienna a = ${a}, zmienna b = ${b}, zmienna c = ${c}`);
+		})();
+	};
+F();	
+</script>
+</body>
+</html>

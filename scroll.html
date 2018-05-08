@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<Style>
+		*{
+			transition: all .4 ease-in;
+		}
+		body{
+			margin:0;
+		}
+		.bar{
+			height: 500vh;
+			width: 100%;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#8b9199+0,ff9393+41,8b9199+46,233642+100 */
+background: #8b9199; /* Old browsers */
+background: -moz-linear-gradient(top, #8b9199 0%, #ff9393 41%, #8b9199 46%, #233642 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #8b9199 0%,#ff9393 41%,#8b9199 46%,#233642 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #8b9199 0%,#ff9393 41%,#8b9199 46%,#233642 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8b9199', endColorstr='#233642',GradientType=0 ); /* IE6-9 */
+		}
+		#pasek{
+			width: 0;
+			height: 100px;
+			background: red;
+			position: fixed;
+			left:0;
+			top:30%;
+		}
+		#box{
+			position: fixed;
+			left:-200px;
+			top:30%;
+			width: 200px;
+			height:200px;
+			background: blue;
+		}
+	</Style>
+</head>
+
+<body id="tBody">
+	<div class="bar">
+	</div>
+	<div id="pasek">
+	
+	</div>
+	<div id="box">
+	
+	</div>
+	<script>
+		'use strict';
+		
+		const statusBar = function(){
+		  	let wysDoc = document.querySelector("body").offsetHeight;
+			let scr = window.scrollY;
+			const szerokoscPaska = Math.round(scr / (wysDoc - window.innerHeight) * 100 );
+			const elePasek = document.getElementById("pasek");
+			const eleBox = document.getElementById("box");
+			
+			elePasek.style.width = szerokoscPaska + "%";
+			eleBox.style.left = (szerokoscPaska / 4 ) + "%";
+
+		};
+		window.addEventListener("scroll",statusBar);
+		
+	</script>
+</body>
+
+</html>

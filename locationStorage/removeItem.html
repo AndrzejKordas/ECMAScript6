@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+	<h1 class="p2 my5 text-center">Pojemnik na dane - localStorage</h1>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row"  id="place">
+            </div>
+        </div>
+        <div class="col-md-2">
+        	<div class="row" id="nav">
+            </div>
+        </div>
+    </div>
+</div>
+<div ></div>
+<script>
+/////////////////////////////////////////////////
+var tab =[];
+
+function co(key){
+    var frag2 = document.createDocumentFragment();
+	
+	var napis =document.createTextNode("usuń " + tab[key]);
+	var but = document.createElement("button");	
+	but.appendChild(napis);
+	
+	var warstwa = document.createElement("div");
+	warstwa.setAttribute("class", "col-md-12 border border-primary");
+	warstwa.appendChild(but);
+	
+	var ele =document.getElementById("nav");
+	ele.appendChild(but);
+	
+	
+	but.addEventListener("click",
+	function(){
+		
+		localStorage.removeItem(tab[key]);
+		location.reload(); 
+		
+		},false
+	);
+	
+	//frag2.appendChild(ele);
+}
+
+(function(){
+var frag = document.createDocumentFragment();
+	
+	for(var i =0; i < localStorage.length; i++ ){
+		
+		var klucz = localStorage.key(i);
+		tab[i] = klucz; 
+		var war = localStorage.getItem(klucz);
+				
+		var komorka = document.createElement("div");
+		komorka.setAttribute("class", "col-md-6 lead border border-primary");
+		var contentKey =document.createTextNode(klucz);
+		komorka.appendChild(contentKey);
+		
+		var komorka2 = document.createElement("div");	
+		komorka2.setAttribute("class", "col-md-6 border border-success");
+		var contentWar =document.createTextNode(war);
+		komorka2.appendChild(contentWar);
+
+		co(i);
+
+		frag.appendChild(komorka);
+		frag.appendChild(komorka2);
+		}
+	place.appendChild(frag);
+}());
+//////////////////////////////////////////////
+</script>
+</body>
+</html>

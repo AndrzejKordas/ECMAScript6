@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<Style>
+	</Style>
+</head>
+
+<body id="tBody">
+<h1 id="nagl"></h1>
+	<script>
+		'use strict';
+
+		const sz = function() {
+			const ele = document.getElementById("tBody");
+			const ile = ele.offsetWidth;
+			return ile;
+		};
+
+
+
+		function view(str,cos) {
+		document.getElementById("nagl").innerHTML = str + " >> " + cos();	
+		}
+		
+		view("szerokość body ",sz);
+
+	</script>
+</body>
+
+</html>
