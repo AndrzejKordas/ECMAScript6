@@ -26,27 +26,30 @@
 var tab =[];
 
 function co(key){
+    var frag2 = document.createDocumentFragment();
+	
 	var warstwa = document.createElement("div");
-	warstwa.setAttribute("class", "col-md-12 border border-white bg-danger text-white");
+	warstwa.setAttribute("class", "col-md-12 but border border-white bg-danger text-white");
+	
 	
 	var napis =document.createTextNode("usuń " + tab[key]);
-	var but = document.createElement("button");
-	but.setAttribute("class", "col-md-12 bg-danger text-white border-right-0 border-left-0");	
-	but.appendChild(napis);
-	warstwa.appendChild(but);
+	warstwa.appendChild(napis);
+
 	
 	var ele =document.getElementById("nav");
 	ele.appendChild(warstwa);
 	
-	but.addEventListener("click",
+	
+	warstwa.addEventListener("click",
 	function(){
 		
 		localStorage.removeItem(tab[key]);
-		location.href = "setItem.html";
+		location.reload(); 
 		
 		},false
 	);
-
+	
+	//frag2.appendChild(ele);
 }
 
 (function(){

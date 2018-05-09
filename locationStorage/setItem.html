@@ -11,28 +11,63 @@
 <input name="wartosc" type="text" placeholder="wartosc" id="wartosc">
 <input type="button" id="but" value="Dodaj do magazynu lokalnego">
 </form>
-
-
+<table>
+<tr><td id="kluczView"></td>
+<td id="warView"></td>
+</tr>
+</table>
 <script>
 //////////////////////////////////////////////
 //localStorage.setItem( "nazwisko", "Kordas" )
 
+const warKlucz = [];
+const war = [];
+const ele1 =document.getElementById("kluczView");
+const ele2 =document.getElementById("warView");
 
-function rob(){
+(function(){
+for(var i = 0; i< localStorage.length; i++ ){
+	var klucz = localStorage.key(i);
+	warKlucz[i] = klucz;
+	war[i] = localStorage.getItem(klucz);
+	zapiszKlucze(i);
+	}
+	}());
+
+function zapiszKlucze(x){
+	var nod = document.createElement("li");
+	var coAdd = document.createTextNode(warKlucz[x]);
+	nod.appendChild(coAdd);
+	ele1.appendChild(nod);
+	}
+
+function zapiszWar(v)
+{
+   	var nod2 = document.createElement("li");
+	var coAdd2 = document.createTextNode(v);
+	nod2.appendChild(coAdd2);
+	ele2.appendChild(nod2);
+}
+var zapiszWartosci = war.map(zapiszWar);
+
+
+/*******************************************
+		Dodawanie rekordu
+********************************************/
+
+function dodaj(){
 	var klucz = document.getElementById("klucz").value;
 	var wartosc = document.getElementById("wartosc").value;
 	localStorage.setItem( klucz, wartosc );
-	location.href = "storage35.html"; 
+	location.href = "removeItem.html"; 
 	}
 
 	
 const ele = document.getElementById("but");
-ele.addEventListener("click",rob,false);
-	
-	
+ele.addEventListener("click",dodaj,false);
 
-//////////////////////////////////////////////
-
+///////////////////////////////////////////////////////
 </script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </body>
 </html>
