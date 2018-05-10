@@ -12,6 +12,7 @@
 
 
 <div class="container">
+<h1 class="p2 my5 text-center">Pojemnik na dane - localStorage</h1>
 <table width="100%" cellpadding="3" cellspacing="3">
 <tr>
 <td class="text-center"><input name="klucz" type="text" placeholder="klucz" id="klucz"></td>
@@ -68,8 +69,10 @@ var zapiszWartosci = war.map(zapiszWar);
 function dodaj(){
 	var klucz = document.getElementById("klucz").value;
 	var wartosc = document.getElementById("wartosc").value;
-	localStorage.setItem( klucz, wartosc );
-	location.href = "removeItem.html"; 
+		if(klucz != "" || wartosc != ""  ){
+			localStorage.setItem( klucz, wartosc );
+			location.href = "removeItem.html"; 
+		}else{ alert("niewprowadzono danych");}
 	}
 
 	
