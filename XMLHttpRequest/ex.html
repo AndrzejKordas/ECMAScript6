@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+<button type="button" id="but" name="but">Change Content</button>
+<div id="demo">
+
+</div>
+
+<script>
+
+const ele = document.getElementById("but");
+but.addEventListener("click",loadXMLDoc,false);
+
+
+
+function loadXMLDoc(e) {
+  console.log(e.target.id);
+  
+  var xhttp = new XMLHttpRequest();
+  
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+	  var response = JSON.parse(this.responseText);
+	  
+	  //tworzenie ele
+	  var nazwisko = response.name;
+	  var zawod = response.name;
+  //zostały nam książki 
+  response.ksiazki.forEach(
+		function (track, index) { 
+		
+		  function fu(track){
+				
+			 let licznik;
+			 let inner = function (track){
+				 licznik += track;
+				 alert(licznik);
+				 };
+			 return inner;	 
+			}
+			
+		 fu(track);
+		
+		}
+		
+	);
+	  //zapisujemy do warstwy	
+	  document.getElementById("demo").innerHTML = "<h1>" + nazwisko + "</h1><h3>" + zawod + "</h3>";	
+	
+		
+	//
+		
+  }
+};
+  
+  xhttp.open("GET", "pliki/dane.json", true);
+  xhttp.send();
+
+}
+</script>
+
+</body>
+</html>

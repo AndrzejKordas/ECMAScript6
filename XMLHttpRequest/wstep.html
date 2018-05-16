@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+
+/*******************************
+	I - WYSŁANIE RZĄDANIA 
+*******************************/
+
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = goo;
+xhr.open('GET','pliki/plik1.txt',true);//parametr false blokuje JS i czeka na odpowiedz serwera
+xhr.send('');
+
+/*
+zdarzenie readystatechange określa stan gotowości XML
+stan gotowości to właściwości obiektu XML o nazwie [ readyState ]
+mogą być następujące stany
+
+0: niezaininicjowany
+1:ładuje się 
+2:załadowany
+3:interaktywnie
+4:zakończone
+Wartość 4 readyState oznacza że nadeszła odpowiedz i można rozpocząć ładowanie
+
+[xhr.status] kody statusu 
+1:404 plik nie istnieje
+2:200 OK
+
+*/
+
+/*******************************
+
+	II - PRZETWORZENIE ODPOWIEDZI
+
+*******************************/
+
+function  goo(){
+	if( xhr.readyState < 4 ){
+		return; //niegotowe
+		}
+	if( xhr.status != 200){
+		alert('Błąd plik nie istnieje');
+		return;
+		}
+	if( xhr.status == 200){
+		alert("BINGO");
+		}		
+	//OK do roboty
+	alert(xhr.responseText);	
+	};
+
+
+
+
+</script>
+</body>
+</html>

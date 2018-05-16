@@ -7,23 +7,18 @@
 <body>
 <div id="war"></div>
 <script>
-
+var glob;
 const  Fu = function (){
  	var b = 0;
  	var wew = function (){
 	 b +=1;
+	 console.log(b);
 	 return b;
-	 };
-	 wew();
-	 
+	 }
+  	glob = wew;
   };
-Fu();
-function xxx(y){
-	y = Fu();
-	alert( y );
-	}
-document.addEventListener("click",xxx,false);
-
+Fu();//musimy wywołać funkcje [Fu] by przypisać lokalną funkcję [wew] która zwraca wewnętrzną zmienną [b] do globalnej zmiennej [ glob ] 
+document.addEventListener("click",glob,false);
 </script>
 </body>
 </html>

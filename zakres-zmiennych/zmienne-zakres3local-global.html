@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+<script>
+function fu1(){
+	var b="lokana fu1";
+	return b;
+}
+var glob = fu1();//przypisujemy funkcję do zmiennej by móc z funkcji wydobyć wartość 
+/*
+użycie zmiennej lokalnej w zakresie globalnym 
+*/
+function x(){
+	alert(glob);
+	}
+document.addEventListener("click",x,false);
+</script>
+</body>
+
+</html>

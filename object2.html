@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+const auto = {
+	name: "Mercedes",
+	kolor: "Metalik",
+	silnik: "Czterocylindrowy",
+	view: function(){
+		console.log( this.name );
+		}
+	}
+let x;
+for (x in auto) {
+    console.log(x + "-----" + auto[x]);
+}	 
+</script>
+</body>
+</html>

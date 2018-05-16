@@ -12,16 +12,17 @@
 	<h1 id="nagl"></h1>
 	<script>
 		
-		let licznik = function(){
-			let war = 0;
-			function(){
-				war += 1;
+		var licznik = function(){
+			var war = 0;
+			war += 1;
+			
+
+			
 				
-				};
-			return war;
-			alert(war);
+			console.log(war);
+
 		};
-      licznik();
+     document.addEventListener("click",licznik,false);
 	</script>
 
 

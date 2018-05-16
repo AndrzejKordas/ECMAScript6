@@ -8,18 +8,20 @@
 <div id="war"></div>
 <script>
 
+let glob;
+
 const  Fu = function (){
- 	var b = 0;
- 	var wew = function (){
+ 	let b = 0;
+ 	let wew = function (){
 	 b +=1;
 	 return b;
-	 };
-	 wew();
-	 
+	 }
+  	glob = wew;
   };
 Fu();
+
 function xxx(y){
-	y = Fu();
+	y = glob();
 	alert( y );
 	}
 document.addEventListener("click",xxx,false);

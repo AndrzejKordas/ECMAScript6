@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+
+<div id="demo">
+
+</div>
+
+<script>
+
+var xhr = new XMLHttpRequest();
+
+function colB(){
+	if( xhr.readyState < 4 ){
+		return; //niegotowe
+		}
+	if( xhr.status != 200){
+		alert('Błąd plik nie istnieje');
+		return;
+		}
+	if( xhr.status == 200){
+		 document.getElementById("demo").innerHTML = xhr.responseText;
+		}		
+	//OK do roboty
+	alert("OK");	
+	}
+
+
+xhr.onreadystatechange = (function(myxhr){
+	return function(){
+		colB(myxhr);
+	}
+}(xhr));
+
+xhr.open("GET","pliki/plik2.html",true);
+xhr.send("");
+
+	
+</script>
+
+</body>
+</html>

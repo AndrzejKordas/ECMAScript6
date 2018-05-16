@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+	<script>
+		'use strict'; 
+		
+var a="globalna";
+function fu1(){
+	var b="lokana fu1";
+	
+	function fu2(){
+    	var c="localna fu2";
+		
+		function fu3(){
+			var d = "lokalna fu3";
+			console.log(a);
+			console.log(b);
+			console.log(c);
+			console.log(d);
+		
+		}
+		fu3();
+	}
+	fu2();
+
+}
+fu1();
+	</script>
+</body>
+
+</html>

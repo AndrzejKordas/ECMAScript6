@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div id="war"></div>
+
+<script>
+const eleWar = document.getElementById("war");
+function fu(){
+ let licznik = 0;
+ let inner = function (){
+	 licznik += 1;
+	 eleWar.innerHTML = licznik
+	 };
+ return inner;	 
+}
+
+const xxx = fu();
+
+document.addEventListener("click",xxx,false);
+	
+	
+	
+</script>
+</body>
+</html>
