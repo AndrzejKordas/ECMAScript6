@@ -10,11 +10,13 @@
 var glob;
 const  Fu = function (){
  	var b = 0;
- 	var wew = function (){
+ 	
+	var wew = function (){
 	 b +=1;
 	 console.log(b);
 	 return b;
 	 }
+	 
   	glob = wew;
   };
 Fu();//musimy wywołać funkcje [Fu] by przypisać lokalną funkcję [wew] która zwraca wewnętrzną zmienną [b] do globalnej zmiennej [ glob ] 

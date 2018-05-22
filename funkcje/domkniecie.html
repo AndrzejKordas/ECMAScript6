@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+﻿
+function fu(){
+
+	licznik = 0;
+
+	var fuInner = function (){
+		return licznik ++;
+	}
+	return fuInner;
+
+}
+var z = fu();
+z();
+
+</script>
+</body>
+</html>

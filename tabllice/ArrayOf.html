@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<Style>
+	</Style>
+</head>
+
+<body id="tBody">
+
+	<script>
+  	let arr = Array.of(1,"dwa",{obj:"dziesięć"});	
+	console.log(arr);	
+	
+	for(const index of arr.keys()){
+		//alert(index);
+		}	
+	for(const value of arr.values()){
+		//alert(value);
+		}	
+	
+	for(const [index,value] of arr.entries()){
+		alert(index + "-" + value);
+		}	
+	
+    </script>
+</body>
+
+</html>

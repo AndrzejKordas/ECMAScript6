@@ -1,0 +1,12 @@
+$bg: #eee;
+$bgCon: #e0e0e0;
+#demo{
+	border: 1px solid #ccc;
+	display:none;
+	box-sizing:border-box;
+	padding:2rem;
+    background: $bgCon;
+	}
+body{
+background: $bg;
+}	

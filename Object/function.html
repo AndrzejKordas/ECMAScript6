@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+const auto = {
+	name: "Mercedes",
+	kolor: "Metalik",
+	silnik: "Czterocylindrowy",
+	view: function(){
+		return "Jestem samochód marki - " + this.name;
+		}
+	}
+//Tworzymy funkcje
+function F(){}
+//Przypisujemy do niej właściwości obiektu auto
+F.prototype = auto;
+
+//musimy ją wywołać jako konstruktor
+const nowy_model = new F(){};
+
+</script>
+</body>
+</html>

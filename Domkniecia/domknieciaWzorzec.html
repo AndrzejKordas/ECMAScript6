@@ -8,6 +8,7 @@
 <div id="war"></div>
 <script>
 	const eleWar = document.getElementById("war");
+	
 	function fu(){
 	 let licznik = 0;
 	 let inner = function (){
@@ -16,8 +17,11 @@
 		 };
 	 return inner;	 
 	}
+	
 	const xxx = fu();
+	
 	alert(typeof xxx);
+	
 	document.addEventListener("click",xxx,false);
 </script>
 </body>

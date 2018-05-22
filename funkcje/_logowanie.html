@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Logowanie</title>
+</head>
+
+<body>
+<form>
+	<input type = "text" id = "login">
+    <input type = "text" id = "pass">
+	<input type="submit" value = "login" id="but">
+</form>
+<script>
+var ele = document.getElementById("but");
+ele.addEventListener("click", go, false);
+
+var tab=[];//tablica do badania loginu
+var xhr = new XMLHttpRequest();//pobieranie hasła
+
+function go(e){
+	e.preventDefault();
+	var login = document.getElementById("login").value;
+	////////////////       l o g i n        ///////////////
+	let znaki = login.split("");//zamiana stringu na obiekt 
+	for(let i = 0; i < znaki.length; i++){
+		tab[i] = znaki[i];//tworzymy tablicę
+		}
+	var statusLogin = tab.includes("@");//poszukujemy znaku
+	
+	if(znaki.length > 3 && statusLogin == true){
+		wczytaj();
+		}else{
+		alert("zły login lub hasło");
+		}		
+
+}
+
+function wczytaj(){
+		var pass = document.getElementById("pass").value;
+		////////////////       h a s ł o        ///////////////	
+	    xhr.onreadystatechange = function(){
+		  if (this.readyState == 4 && this.status == 200) {
+		  	var response = JSON.parse(this.responseText);
+		  	var haslo = response.haslo;
+			if( pass == haslo){
+				window.location.href = "http://a-kord.pl/test/bingo.html";
+				}else{
+					alert("zły login lub hasło");
+					}		
+			}
+		}
+	  xhr.open("GET", "pliki/haslo.json", true);
+	  xhr.send();
+}
+
+
+</script>
+</body>
+</html>

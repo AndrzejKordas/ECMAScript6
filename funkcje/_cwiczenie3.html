@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="send.php" method="get">
+    <fieldset id="wina">
+    	<legend>Wina</legend>
+        <div>
+            <label>
+                Tanie ( 20zł)
+                <input type="checkbox" name = "20" id="tanie">
+            </label>
+        </div>
+        <div>
+            <label>
+                Średnie (60zł)
+                <input type="checkbox" name = "60" id="srednie">
+            </label>        
+        </div>
+        <div>
+            <label>
+                Drogie (120zł)
+                <input type="checkbox" name = "120" id="drogie">
+            </label>        
+        </div>
+    </fieldset>
+    <fieldset id="dostawa">
+    	<legend>Dostawa</legend>
+        <div>
+            <label>
+                Kurier ( 100zł )
+                <input type="radio" name = "dostawa" value="100">
+            </label>
+        </div>
+        <div>
+            <label>
+                Osobisty ( 0zł )
+                <input type="radio" name = "dostawa" value="0">
+            </label>        
+        </div>
+    </fieldset> 
+    <input type="submit" id="but">   
+</form>
+<script>
+﻿
+const ele = document.getElementById("but");
+ele.addEventListener("click",zamawiam,false);
+
+const eleWina = document.getElementById("wina");
+eleWina.addEventListener("change",sumuj,false);
+
+const eleDostawa = document.getElementById("dostawa");
+eleDostawa.addEventListener("change",sprawdzDostawa,false);
+
+//var ktory;
+var suma = 0;
+var tab = [];
+var Dostawa;
+
+function sumuj(e){
+	
+	var kwota = parseFloat(e.target.name);//zamiana stringu na number
+	var ktory = e.target.id;//identyfikacja elementu na podstawie zdarzenia
+	var boolean = tab.includes(ktory);//przeszukiwanie tablicy "tab" na podstawie wartości "ktory" zwraca Boolean
+	var indeks = tab.findIndex(n => n == ktory);//odnajdywanie indeksu na podstawie wartości
+
+	
+	if( boolean == false){
+		suma = suma + kwota;
+		tab.push(ktory);
+		}
+	if(boolean !== false){
+		suma = suma - kwota;
+		tab.splice(indeks, 1);//metoda split(indeks,ile)
+		}
+				
+	console.log(tab + "---" + suma);
+}
+
+
+function sprawdzDostawa(e){
+	Dostawa = parseFloat(e.target.value);
+}
+	
+function zamawiam(e){
+	e.preventDefault();
+	
+	suma = suma + Dostawa;
+	
+	
+	console.log(tab + "---" + suma + "--- Koszt dostawy" + Dostawa);
+	//liczymy elelmenty
+	}
+
+
+
+</script>
+</body>
+</html>
