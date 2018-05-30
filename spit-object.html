@@ -2,24 +2,25 @@
 <html>
 
 <head>
-	<Style>
+    <Style>
 
 
-	</Style>
+    </Style>
 </head>
 
 <body id="tBody">
-	<h1 id="nagl"></h1>
-	<script>
-		const ciag = "jeden dwa trzy cztery";
-		const slowa = ciag.split(" ");
-		console.log(typeof slowa);
-		for (var i = 0; i < slowa.length; i++) {
-			alert( slowa[i] );
-			}
-	</script>
+    <h1 id="nagl"></h1>
+    <script>
+        const ciag = "jeden dwa trzy cztery";
+        const slowa = ciag.split(" ");
+        console.log(typeof slowa);
+        for (var i = 0; i < slowa.length; i++) {
+            alert(slowa[i]);
+        }
+        //ciag.forEach((war, index) => console.log(war));
+        slowa.forEach((track, index) => alert("forEach --" + track));
+    </script>
 
-	</script>
 </body>
 
 </html>

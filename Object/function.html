@@ -8,20 +8,35 @@
 <body>
 <script>
 const auto = {
-	name: "Mercedes",
-	kolor: "Metalik",
+	name: "Samochód",
+	typ: "Limuzyna",
 	silnik: "Czterocylindrowy",
-	view: function(){
-		return "Jestem samochód marki - " + this.name;
+	prezentacja: function(){
+		return "Jestem - " + this.name;
 		}
 	}
 //Tworzymy funkcje
 function F(){}
-//Przypisujemy do niej właściwości obiektu auto
+
+/*
+Z funkcji F() tworzymy konstruktor - który posłuży nam do wytwarzania nowych obiektów. 
+Z miejsca dostaje on specjalną nazwę - "constructor"
+Do tego konstruktora przypisujemy zestaw właściwości i metod obiektu auto - który staje się prototypem
+*/
 F.prototype = auto;
 
+
 //musimy ją wywołać jako konstruktor
-const nowy_model = new F(){};
+const nowy_model = new F();
+
+
+//dodajemy nowe właściwość i metody
+nowy_model.marka = "Mercedes";
+nowy_model.cena = "100 000";
+nowy_model.klasa = function(){
+	return  this.prezentacja() + "\n - Typu: " + this.typ + "\n - Marki: " + this.marka + "\n - Cena: " + this.cena;
+	}
+
 
 </script>
 </body>
