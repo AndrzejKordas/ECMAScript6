@@ -27,12 +27,11 @@ var RobotAlfa = new Robot("Alfa","Bojowy");
 var RobotBeta = new Robot("Beta","Medyk");
 var RobotSigma = new Robot("Sigma","Naukowiec");
 
+//Dopisujemy nowe metody do constructora Robot ( ale pomiętajmy że on jest instancją robot_prototyp )
 Robot.prototype.help = function(komunikat){
 	alert(komunikat + this.typ + this.name);	
 	}
-Robot.prototype.bum = function(komunikat){
-	alert(komunikat);	
-	}
+
 </script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wikitechy bezierCurveTo Method</title>
+    </head>
+    <body>
+        <h2>wikitechy bezierCurveTo Method</h2>
+        <canvas id="wikitechyCanvas" width="800" height="800" style="border:1px solid blue;">
+        </canvas>
+        <script>
+		
+		//prototyp
+		var pisak_prototyp ={
+			rysuj: function(){
+					var c = document.getElementById("wikitechyCanvas");
+					var ctx = c.getContext("2d");
+					ctx.beginPath();
+					ctx.lineWidth = 15;
+					ctx.strokeStyle = "rgb(0,100,220)";
+					ctx.moveTo(this.startPointX, this.startPointY);
+					ctx.bezierCurveTo(this.ControlPoint1X, this.ControlPoint1Y, this.ControlPoint2X, this.ControlPoint2Y, this.endPointX, this.endPointY);
+					ctx.stroke();
+				},
+			animuj: function(){
+					var c = document.getElementById("wikitechyCanvas");
+					var ctx = c.getContext("2d");
+					ctx.beginPath();
+					ctx.lineWidth = 35;
+					ctx.strokeStyle = "rgb(0,50,120)";
+					ctx.moveTo(this.startPointX, this.startPointY);
+					ctx.bezierCurveTo(Math.floor((Math.random() * 60) + 10), this.ControlPoint1Y, this.ControlPoint2X, this.ControlPoint2Y, this.endPointX, this.endPointY);
+					ctx.stroke();
+					//setTimeout(this.animuj,3000);
+					//setInterval(this.animuj, 3000);
+					
+				}	
+			}
+       //konstruktor
+		function Figura(startPointX, startPointY, ControlPoint1X, ControlPoint1Y, ControlPoint2X, ControlPoint2Y,endPointX,endPointY){
+			this.startPointX= startPointX;//przesunięcie na osi X
+			this.startPointY= startPointY;//przesunięcie na osi Y
+			//
+			this.ControlPoint1X = ControlPoint1X;//punkt1 wygięcie na osi X 
+			this.ControlPoint1Y = ControlPoint1Y;//punkt1 wygięcie na osi Y
+			//
+			this.ControlPoint2X = ControlPoint2X;//punkt2 wygięcie na osi X
+			this.ControlPoint2Y = ControlPoint2Y;//punkt2  wygięcie na osi Y
+			
+			this.endPointX = endPointX;//przesunięcie na osi X
+			this.endPointY = endPointY;//przesunięcie na osi Y
+			
+			}
+		
+		//Implementujemy do konstruktora prototyp
+		Figura.prototype = pisak_prototyp;
+
+		//
+		var figura1 = new Figura(10, 40, 40, 250, 300, -300, 400, 400);
+		//
+		figura1.rysuj();
+		figura1.animuj();
+		
+	
+        </script>
+    </body>
+</html>

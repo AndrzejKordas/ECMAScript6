@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Wikitechy bezierCurveTo Method</title>
+    </head>
+    <body>
+        <h2>wikitechy bezierCurveTo Method</h2>
+        <canvas id="wikitechyCanvas" width="300" height="200"          style="border:1px solid blue;">
+        </canvas>
+        <script>
+            var c = document.getElementById("wikitechyCanvas");
+            var ctx = c.getContext("2d");
+            ctx.beginPath();
+            ctx.moveTo(40, 40);
+            ctx.bezierCurveTo(40, -80, 250, 200, 250, 40);
+            ctx.stroke();
+			
+			
+			/*
+	 ctx.bezierCurveTo(40, 200, 250, 200, 250, 40);		
+    Start point(40,40)
+    Control point 1(40,200)
+    Control point 2(250,200)
+    End point (250,40)
+
+			*/
+			
+        </script>
+    </body>
+</html>

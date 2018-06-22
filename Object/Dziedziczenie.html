@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+function Robot(iloraz){
+	this.name = "Robot";
+	this.iq = 60;
+	this.audio = function(){
+		return this.name;
+		}
+	}
+
+	
+function Robotnik(){
+	this.name = "Robotnik";
+	}	
+function Technik(){
+	this.name = "Technik";
+	this.dzial = "Walcownia";
+	this.specjalnosc = function(){
+		return "moja specjalność to" + this.dzial + "jestem" + this.name; 
+		}
+	}	
+/* Uwaga zaczynamy proces dziedziczenia */
+Robotnik.prototype = new Robot(2);
+Robotnik.prototype.construktor = Robot;
+Technik.prototype = new Robotnik(4);
+Technik.prototype.construktor = Technik;
+//rozszeranie prototypu
+Robot.prototype.checkIq = function(){
+	return this.id + this.iloraz;
+	}		
+</script>
+</body>
+</html>

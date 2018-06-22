@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+
+function Ciag(a, b){
+	this.a = a;
+	this.b = b;
+	}
+	
+var day = new Date(); 
+	
+Ciag.prototype.czek = function(){
+	var w = Boolean(this.a == this.b);
+	//alert( w );
+	const s1 = Math.cos.call(Ciag, Math.pow(this.a, 2));
+	const s2 = Math.cos.call(Ciag, Math.pow(this.b, 2));
+	alert(s1 + "*************" + s2);
+	}
+
+var newciag = new Ciag(4,3);
+newciag.czek();		
+</script>
+
+</body>
+</html>
